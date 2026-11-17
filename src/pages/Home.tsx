@@ -19,21 +19,25 @@ const pilares = [
     icon: Microscope,
     title: 'Ciência',
     description: 'Descobertas, conhecimentos científicos e curiosidades sobre a vida.',
+    path: '/ciencia',
   },
   {
     icon: GraduationCap,
     title: 'Educação',
     description: 'Práticas pedagógicas e novas formas de ensinar e aprender.',
+    path: '/praticas',
   },
   {
     icon: Laptop,
     title: 'Tecnologia',
     description: 'Recursos digitais e ferramentas para transformar a aprendizagem.',
+    path: '/recursos',
   },
   {
     icon: HeartHandshake,
     title: 'Inclusão',
     description: 'Possibilidades para uma educação acessível e participativa.',
+    path: '/inclusao',
   },
 ];
 
@@ -122,11 +126,12 @@ export default function Home() {
               const Icon = pilar.icon;
 
               return (
-                <div
+                <Link
                   key={pilar.title}
-                  className="rounded-xl border border-[#e8e6dc] bg-white p-8 transition hover:-translate-y-1 hover:shadow-lg"
+                  to={pilar.path}
+                  className="group block rounded-xl border border-[#e8e6dc] bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-[#b6d394] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#568044]"
                 >
-                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#edf3e7] text-[#568044]">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-[#edf3e7] text-[#568044] transition group-hover:bg-[#e2ecd8]">
                     <Icon size={29} />
                   </div>
 
@@ -137,7 +142,15 @@ export default function Home() {
                   <p className="mt-3 text-sm leading-7 text-[#68766d]">
                     {pilar.description}
                   </p>
-                </div>
+
+                  <span className="mt-5 flex items-center gap-2 text-sm font-semibold text-[#568044]">
+                    Conhecer mais
+                    <ArrowRight
+                      size={17}
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+                  </span>
+                </Link>
               );
             })}
           </div>
@@ -209,30 +222,28 @@ export default function Home() {
         </div>
       </section>
 
-      
-{/* CHAMADA PARA A PRÓXIMA PÁGINA */}
-    <section className="bg-[#245b43] px-6 py-20 text-center">
-    <span className="text-xs font-bold tracking-[3px] text-[#b6d394]">
-        CONHEÇA O BIOCONECTA
-    </span>
+      {/* CHAMADA PARA A PRÓXIMA PÁGINA */}
+      <section className="bg-[#245b43] px-6 py-20 text-center">
+        <span className="text-xs font-bold tracking-[3px] text-[#b6d394]">
+          CONHEÇA O BIOCONECTA
+        </span>
 
-    <h2 className="mt-4 font-serif text-4xl text-white md:text-5xl">
-        Ciência, educação e tecnologia em conexão.
-    </h2>
+        <h2 className="mt-4 font-serif text-4xl text-white md:text-5xl">
+          Ciência, educação e tecnologia em conexão.
+        </h2>
 
-    <p className="mx-auto mt-5 max-w-2xl leading-8 text-[#d6e5d9]">
-        Descubra nossa proposta e conheça o espaço que reúne conhecimentos
-        científicos, práticas pedagógicas, recursos digitais e inclusão.
-    </p>
+        <p className="mx-auto mt-5 max-w-2xl leading-8 text-[#d6e5d9]">
+          Descubra nossa proposta e conheça o espaço que reúne conhecimentos
+          científicos, práticas pedagógicas, recursos digitais e inclusão.
+        </p>
 
-    <Link
-        to="/sobre"
-        className="mt-8 inline-flex items-center gap-3 rounded-md bg-[#a4c77d] px-7 py-4 font-semibold text-[#193b2d] transition hover:bg-[#b9d797]"
-    >
-        Conheça o BioConecta <ArrowRight size={19} />
-    </Link>
-    </section>
-
+        <Link
+          to="/sobre"
+          className="mt-8 inline-flex items-center gap-3 rounded-md bg-[#a4c77d] px-7 py-4 font-semibold text-[#193b2d] transition hover:bg-[#b9d797]"
+        >
+          Conheça o BioConecta <ArrowRight size={19} />
+        </Link>
+      </section>
     </main>
   );
 }

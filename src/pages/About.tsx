@@ -17,24 +17,28 @@ const pilares = [
     titulo: 'Ciência',
     descricao:
       'Valorização do conhecimento científico, da curiosidade e da descoberta.',
+    path: '/ciencia',
   },
   {
     icon: GraduationCap,
     titulo: 'Educação',
     descricao:
       'Construção de novas possibilidades para ensinar e aprender Ciências e Biologia.',
+    path: '/praticas',
   },
   {
     icon: Laptop,
     titulo: 'Tecnologia',
     descricao:
       'Exploração de recursos digitais como apoio às práticas educativas.',
+    path: '/recursos',
   },
   {
     icon: HeartHandshake,
     titulo: 'Inclusão',
     descricao:
       'Reconhecimento das diferentes formas de aprender e participar.',
+    path: '/inclusao',
   },
 ];
 
@@ -136,11 +140,12 @@ export default function About() {
               const Icon = pilar.icon;
 
               return (
-                <article
+                <Link
                   key={pilar.titulo}
-                  className="rounded-xl border border-[#e8e6dc] bg-white p-8 transition hover:-translate-y-1 hover:shadow-lg"
+                  to={pilar.path}
+                  className="group block rounded-xl border border-[#e8e6dc] bg-white p-8 transition duration-300 hover:-translate-y-1 hover:border-[#b6d394] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#568044]"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#edf3e7] text-[#568044]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#edf3e7] text-[#568044] transition group-hover:bg-[#e2ecd8]">
                     <Icon size={28} />
                   </div>
 
@@ -151,7 +156,15 @@ export default function About() {
                   <p className="mt-3 text-sm leading-7 text-[#68766d]">
                     {pilar.descricao}
                   </p>
-                </article>
+
+                  <span className="mt-5 flex items-center gap-2 text-sm font-semibold text-[#568044]">
+                    Conhecer mais
+                    <ArrowRight
+                      size={17}
+                      className="transition-transform group-hover:translate-x-1"
+                    />
+                  </span>
+                </Link>
               );
             })}
           </div>
