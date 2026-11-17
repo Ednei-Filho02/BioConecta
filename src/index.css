@@ -1,0 +1,58 @@
+
+@import "tailwindcss";
+
+:root {
+  font-family: 'Inter', sans-serif;
+  color: #263b32;
+  background: #faf9f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'DM Serif Display', serif;
+}
+
+
+/* AJUSTES GERAIS DE RESPONSIVIDADE */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* CELULARES */
+@media (max-width: 640px) {
+  h1 {
+    overflow-wrap: break-word;
+  }
+
+  section {
+    scroll-margin-top: 80px;
+  }
+}
